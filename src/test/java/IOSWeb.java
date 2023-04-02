@@ -1,4 +1,4 @@
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -8,8 +8,8 @@ import java.net.URL;
 
 import java.net.MalformedURLException;
 
-public class AndroidWeb {
-    private AndroidDriver androidDriver;
+public class IOSWeb {
+    private IOSDriver iosDriver;
 
     /**
      * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
@@ -19,16 +19,16 @@ public class AndroidWeb {
     public SauceTestWatcher watcher = new SauceTestWatcher();
 
     @BeforeEach
-    public void AndroidSetup(TestInfo testInfo) throws MalformedURLException {
+    public void IOSSetup(TestInfo testInfo) throws MalformedURLException {
 
         MutableCapabilities caps = new MutableCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("appium:deviceName", "iPhone Simulator");
         // Comment out the line above (Emulator) before using the line below (Real Device)
-        //caps.setCapability("appium:deviceName", "Google.*");
-        caps.setCapability("appium:platformVersion", "12");
-        caps.setCapability("appium:automationName", "UiAutomator2");
+        //caps.setCapability("appium:deviceName", "iPhone.*");
+        caps.setCapability("appium:platformVersion", "16");
+        caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
@@ -37,15 +37,15 @@ public class AndroidWeb {
 
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
 
-        androidDriver = new AndroidDriver(url, caps);
+        iosDriver = new IOSDriver(url, caps);
 
     }
 
-    @DisplayName("Android Web Test")
+    @DisplayName("iOS Web Test")
     @Test
-    public void androidWebTest() throws InterruptedException {
-        androidDriver.get("https://android.com");
-        Assertions.assertEquals("Android - Secure & Reliable Mobile Operating System", androidDriver.getTitle());
+    public void iOSWebTest() throws InterruptedException {
+        iosDriver.get("https://apple.com/iphone");
+        Assertions.assertEquals("iPhone - Apple", iosDriver.getTitle());
     }
 
     /**
@@ -55,14 +55,14 @@ public class AndroidWeb {
     public class SauceTestWatcher implements TestWatcher {
         @Override
         public void testSuccessful(ExtensionContext context) {
-            androidDriver.executeScript("sauce:job-result=passed");
-            androidDriver.quit();
+            iosDriver.executeScript("sauce:job-result=passed");
+            iosDriver.quit();
         }
 
         @Override
         public void testFailed(ExtensionContext context, Throwable cause) {
-            androidDriver.executeScript("sauce:job-result=failed");
-            androidDriver.quit();
+            iosDriver.executeScript("sauce:job-result=failed");
+            iosDriver.quit();
         }
     }
 
