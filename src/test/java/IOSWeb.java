@@ -9,7 +9,7 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 public class IOSWeb {
-    private IOSDriver iosDriver;
+    private IOSDriver driver;
 
     /**
      * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
@@ -27,7 +27,7 @@ public class IOSWeb {
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         // Comment out the line above (Emulator) before using the line below (Real Device)
         //caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:platformVersion", "16");
+        caps.setCapability("appium:platformVersion", "16.2");
         caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
@@ -37,15 +37,15 @@ public class IOSWeb {
 
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
 
-        iosDriver = new IOSDriver(url, caps);
+        driver = new IOSDriver(url, caps);
 
     }
 
     @DisplayName("iOS Web Test")
     @Test
     public void iOSWebTest() throws InterruptedException {
-        iosDriver.get("https://apple.com/iphone");
-        Assertions.assertEquals("iPhone - Apple", iosDriver.getTitle());
+        driver.get("https://apple.com/iphone");
+        Assertions.assertEquals("iPhone - Apple", driver.getTitle());
     }
 
     /**
@@ -55,14 +55,14 @@ public class IOSWeb {
     public class SauceTestWatcher implements TestWatcher {
         @Override
         public void testSuccessful(ExtensionContext context) {
-            iosDriver.executeScript("sauce:job-result=passed");
-            iosDriver.quit();
+            driver.executeScript("sauce:job-result=passed");
+            driver.quit();
         }
 
         @Override
         public void testFailed(ExtensionContext context, Throwable cause) {
-            iosDriver.executeScript("sauce:job-result=failed");
-            iosDriver.quit();
+            driver.executeScript("sauce:job-result=failed");
+            driver.quit();
         }
     }
 
