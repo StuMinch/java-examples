@@ -6,7 +6,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Demo tests with Selenium.
  */
-public class DesktopWeb {
+public class DesktopEdgeWeb {
     public RemoteWebDriver driver;
 
     /**
@@ -29,10 +29,9 @@ public class DesktopWeb {
 
     @BeforeEach
     public void setup(TestInfo testInfo) throws MalformedURLException {
-        ChromeOptions options = new ChromeOptions();
+        EdgeOptions options = new EdgeOptions();
         options.setPlatformName("Windows 10");
         options.setBrowserVersion("latest");
-        options.setCapability("prerun", "C:\\Windows\\System32\\Taskmgr.exe");
 
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
@@ -45,9 +44,9 @@ public class DesktopWeb {
         driver = new RemoteWebDriver(url, options);
     }
 
-    @DisplayName("Desktop Web Test")
+    @DisplayName("Desktop Edge Web Test")
     @Test
-    public void desktopWebTest() {
+    public void desktopEdgeWebTest() {
         driver.navigate().to("https://www.saucedemo.com");
         Assertions.assertEquals("Swag Labs", driver.getTitle());
     }
