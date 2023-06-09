@@ -4,17 +4,16 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import javax.lang.model.element.Element;
 import java.net.URL;
 
 import java.net.MalformedURLException;
 
-public class IOSWeb {
+public class IOSAppSim {
     private IOSDriver driver;
 
-    /**
-     * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
-     * Note that the name is never actually used
-     */
     @RegisterExtension
     public SauceTestWatcher watcher = new SauceTestWatcher();
 
@@ -23,14 +22,14 @@ public class IOSWeb {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("appium:deviceName", "iPhone 12 Simulator");
-        // Comment out the line above (Emulator) before using the line below (Real Device)
-        //caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:platformVersion", "15.0");
+        caps.setCapability("appium:app", "storage:filename=Retail_release-4.420-20230605_693_39703_automation-chase.app.zip");
+        caps.setCapability("appium:deviceName", "iPhone 13 Simulator");
+        caps.setCapability("appium:platformVersion", "15.5");
         caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("appiumVersion", "2.0.0-beta44");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
+        sauceOptions.setCapability("build", "IM-600");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
@@ -40,12 +39,11 @@ public class IOSWeb {
         driver = new IOSDriver(url, caps);
 
     }
-
-    @DisplayName("iOS Web Test")
+    @DisplayName("Retail_release-4.420-20230605_693_39703_automation-chase")
     @Test
-    public void iOSWebTest() throws InterruptedException {
-        driver.get("https://apple.com/iphone");
-        Assertions.assertEquals("iPhone - Apple", driver.getTitle());
+    public void iOSAppTest() throws InterruptedException {
+        driver.findElement(By.name("Allow Once")).click();
+        driver.getPageSource();
     }
 
     /**

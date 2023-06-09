@@ -8,7 +8,7 @@ import java.net.URL;
 
 import java.net.MalformedURLException;
 
-public class IOSWeb {
+public class IOSAppRDC {
     private IOSDriver driver;
 
     /**
@@ -23,14 +23,14 @@ public class IOSWeb {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("appium:deviceName", "iPhone 12 Simulator");
-        // Comment out the line above (Emulator) before using the line below (Real Device)
-        //caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:platformVersion", "15.0");
+        caps.setCapability("appium:app", "storage:filename=ChaseiPhone_release-4.420-20230605_595_39646_debug-unprotected-chase.ipa");
+        //caps.setCapability("appium:app", "storage:filename=Calculator.ipa");
+        caps.setCapability("appium:deviceName", "iPhone_11_15_real_us");
         caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("appiumVersion", "2.0.0-beta56");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
+        sauceOptions.setCapability("build", "2023-05-27 - Chase RDC App Test Runs");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
@@ -41,11 +41,10 @@ public class IOSWeb {
 
     }
 
-    @DisplayName("iOS Web Test")
+    @DisplayName("iOS App Test - Chase - Real Device - Run 5")
     @Test
-    public void iOSWebTest() throws InterruptedException {
-        driver.get("https://apple.com/iphone");
-        Assertions.assertEquals("iPhone - Apple", driver.getTitle());
+    public void iOSAppTest() throws InterruptedException {
+        driver.getPageSource();
     }
 
     /**

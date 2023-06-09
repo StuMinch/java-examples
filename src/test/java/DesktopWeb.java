@@ -32,13 +32,10 @@ public class DesktopWeb {
         ChromeOptions options = new ChromeOptions();
         options.setPlatformName("Windows 10");
         options.setBrowserVersion("latest");
-        options.setCapability("prerun", "C:\\Windows\\System32\\Taskmgr.exe");
-
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.put("name", testInfo.getDisplayName());
-
         options.setCapability("sauce:options", sauceOptions);
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
 
