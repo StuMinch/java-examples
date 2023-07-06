@@ -7,18 +7,25 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 
 /**
  * Demo tests with Selenium.
  */
-public class DesktopEdgeWeb {
+public class DesktopFirefoxWeb {
+    Logger logger = Logger.getLogger("");
+
     public RemoteWebDriver driver;
 
     /**
@@ -28,27 +35,13 @@ public class DesktopEdgeWeb {
     @RegisterExtension
     public SauceTestWatcher watcher = new SauceTestWatcher();
 
+    public DesktopFirefoxWeb() throws IOException {
+    }
+
     @BeforeEach
     public void setup(TestInfo testInfo) throws MalformedURLException {
-        /*
-        EdgeOptions options = new EdgeOptions();
-        options.setPlatformName("Windows 11");
-        options.setBrowserVersion("latest");
 
-        Map<String, Object> sauceOptions = new HashMap<>();
-        sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
-        sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-        sauceOptions.put("name", testInfo.getDisplayName());
-        sauceOptions.put("build", "Conversant Windows 11 Edge Test");
-        options.setCapability("sauce:options", sauceOptions);
-        URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
-
-        driver = new RemoteWebDriver(url, options);
-
-         */
-
-        // Conversant broken caps
-        EdgeOptions browserOptions = new EdgeOptions();
+        FirefoxOptions browserOptions = new FirefoxOptions();
         browserOptions.setPlatformName("Windows 10");
         browserOptions.setBrowserVersion("latest");
         Map<String, Object> sauceOptions = new HashMap<>();
@@ -61,7 +54,7 @@ public class DesktopEdgeWeb {
         WebDriver driver = RemoteWebDriver.builder().oneOf(browserOptions).address(url).build();
     }
 
-    @DisplayName("Desktop Edge Latest Web Test")
+    @DisplayName("Desktop Firefox Latest Web Test")
     @Test
     public void desktopEdgeWebTest() {
         driver.navigate().to("https://www.saucedemo.com");

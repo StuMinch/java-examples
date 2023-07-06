@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Demo tests with Selenium.
  */
-public class DesktopWeb {
+public class DesktopChromeWeb {
     public RemoteWebDriver driver;
 
     /**

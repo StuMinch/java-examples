@@ -27,6 +27,7 @@ public class AndroidWeb {
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         // Comment out the line above (Emulator) before using the line below (Real Device)
         //caps.setCapability("appium:deviceName", "Google.*");
+        caps.setCapability("enableMultiWindows", true);
         caps.setCapability("appium:platformVersion", "12");
         caps.setCapability("appium:automationName", "UiAutomator2");
         MutableCapabilities sauceOptions = new MutableCapabilities();

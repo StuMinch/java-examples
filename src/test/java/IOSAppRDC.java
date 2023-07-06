@@ -23,14 +23,13 @@ public class IOSAppRDC {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:filename=ChaseiPhone_release-4.420-20230605_595_39646_debug-unprotected-chase.ipa");
-        //caps.setCapability("appium:app", "storage:filename=Calculator.ipa");
-        caps.setCapability("appium:deviceName", "iPhone_11_15_real_us");
+        caps.setCapability("appium:app", "storage:filename=Scrumdinger.ipa");
+        caps.setCapability("appium:deviceName", "iPhone.*");
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("appiumVersion", "2.0.0-beta56");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
-        sauceOptions.setCapability("build", "2023-05-27 - Chase RDC App Test Runs");
+        sauceOptions.setCapability("build", "Scrumdinger Appium RDC");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
@@ -41,9 +40,15 @@ public class IOSAppRDC {
 
     }
 
-    @DisplayName("iOS App Test - Chase - Real Device - Run 5")
+    @DisplayName("Scrumdinger - Step 1")
     @Test
     public void iOSAppTest() throws InterruptedException {
+        driver.getPageSource();
+    }
+
+    @DisplayName("Scrumdinger - Step 2")
+    @Test
+    public void iOSAppTestTwo() throws InterruptedException {
         driver.getPageSource();
     }
 
