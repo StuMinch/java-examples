@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4273205b-7c19-48e4-a15b-536aad090e49" name="Changes" comment="Added Edge example">
-      <change afterPath="$PROJECT_DIR$/pom_original.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DesktopFirefoxWeb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LoggingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AndroidWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AndroidWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopEdgeWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DesktopEdgeWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DesktopChromeWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" afterDir="false" />
-    </list>
+    <list default="true" id="4273205b-7c19-48e4-a15b-536aad090e49" name="Changes" comment="Added Edge example" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
