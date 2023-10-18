@@ -24,10 +24,10 @@ public class IOSWeb {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
-        caps.setCapability("appium:deviceName", "iPhone 12 Simulator");
+        caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
         // Comment out the line above (Emulator) before using the line below (Real Device)
         //caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:platformVersion", "15.0");
+        caps.setCapability("appium:platformVersion", "17.0");
         caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());

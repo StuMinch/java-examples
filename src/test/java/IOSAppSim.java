@@ -27,6 +27,7 @@ public class IOSAppSim {
         caps.setCapability("appiumVersion", "2.0.0-beta44");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
+        //sauceOptions.setCapability("tunnelName", "composed-docker-sc");
         sauceOptions.setCapability("build", "Scrumdinger Appium Tests");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));

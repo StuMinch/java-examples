@@ -1,8 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
@@ -14,16 +10,11 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Demo tests with Selenium.
- */
-public class DesktopChromeWeb {
-    public RemoteWebDriver driver;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class ChromeVersionTest {
 
-    /**
-     * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
-     * Note that the name is never actually used
-     */
+    private static RemoteWebDriver driver;
+
     @RegisterExtension
     public SauceTestWatcher watcher = new SauceTestWatcher();
 
@@ -36,7 +27,6 @@ public class DesktopChromeWeb {
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.put("name", testInfo.getDisplayName());
-        //sauceOptions.put("tunnelName", "composed-docker-sc");
         options.setCapability("sauce:options", sauceOptions);
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");
         driver = new RemoteWebDriver(url, options);
@@ -44,15 +34,12 @@ public class DesktopChromeWeb {
 
     @DisplayName("Desktop Web Test")
     @Test
-    public void desktopWebTest() {
-        driver.navigate().to("https://www.saucedemo.com");
-        Assertions.assertEquals("Swag Labs", driver.getTitle());
+    public void desktopVersionTest() {
+        driver.navigate().to("https://www.cncf.io/");
+        System.out.println("Chrome version: " + driver.getCapabilities().getBrowserVersion());
     }
 
-    /**
-     * Custom TestWatcher for Sauce Labs projects.
-     */
-    public class SauceTestWatcher implements TestWatcher {
+    public static class SauceTestWatcher implements TestWatcher {
         @Override
         public void testSuccessful(ExtensionContext context) {
             driver.executeScript("sauce:job-result=passed");
