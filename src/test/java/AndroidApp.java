@@ -1,4 +1,4 @@
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -8,8 +8,8 @@ import java.net.URL;
 
 import java.net.MalformedURLException;
 
-public class IOSAppRDC {
-    private IOSDriver driver;
+public class AndroidApp {
+    private AndroidDriver driver;
 
     /**
      * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
@@ -19,36 +19,31 @@ public class IOSAppRDC {
     public SauceTestWatcher watcher = new SauceTestWatcher();
 
     @BeforeEach
-    public void IOSSetup(TestInfo testInfo) throws MalformedURLException {
+    public void AndroidSetup() throws MalformedURLException {
 
         MutableCapabilities caps = new MutableCapabilities();
-        caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:filename=Scrumdinger.ipa");
-        caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:automationName", "XCUITest");
-        caps.setCapability("appiumVersion", "2.0.0");
+        caps.setCapability("platformName", "Android");
+        caps.setCapability("appium:app", "storage:filename=cart-release_v23.104.302-20001_arm64-v8a.apk");  // The filename of the mobile app
+        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:platformVersion", "10.0");
+        caps.setCapability("appium:automationName", "UiAutomator2");
+        //caps.setCapability("prerun", "filename=adb-prerun.sh");
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("name", testInfo.getDisplayName());
-        sauceOptions.setCapability("build", "Scrumdinger Appium RDC");
+        sauceOptions.setCapability("appiumVersion", "2.0.0");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+        sauceOptions.setCapability("build", "Instacart Emulator POV");
+        sauceOptions.setCapability("name", "Caper app on an emulator");
+        sauceOptions.setCapability("deviceOrientation", "LANDSCAPE");
         caps.setCapability("sauce:options", sauceOptions);
 
-        URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
-
-        driver = new IOSDriver(url, caps);
+        URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");
+        AndroidDriver driver = new AndroidDriver(url, caps);
 
     }
 
-    @DisplayName("Scrumdinger - Step 1")
     @Test
-    public void iOSAppTest() throws InterruptedException {
-        driver.getPageSource();
-    }
-
-    @DisplayName("Scrumdinger - Step 2")
-    @Test
-    public void iOSAppTestTwo() throws InterruptedException {
+    public void androidWebTest() throws InterruptedException {
         driver.getPageSource();
     }
 

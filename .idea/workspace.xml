@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4273205b-7c19-48e4-a15b-536aad090e49" name="Changes" comment="Added Edge example">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AndroidGuestCheckout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ChromeVersionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AndroidApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CdpEndpointTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DesktopChromeAcquisitionTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DesktopChromeWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DesktopChromeWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopFirefoxWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DesktopFirefoxWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LoggingTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -78,28 +78,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DesktopEdgeWeb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaMusings" />
+    <configuration name="DesktopChromeWeb.performanceMetrics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaExamples" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DesktopEdgeWeb" />
+      <option name="MAIN_CLASS_NAME" value="DesktopChromeWeb" />
+      <option name="METHOD_NAME" value="performanceMetrics" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DesktopFirefoxWeb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaExamples" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DesktopFirefoxWeb" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IOSAppRDC" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaMusings" />
+    <configuration name="IOSAppRDC (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaExamples" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="IOSAppRDC" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IOSAppSim" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaMusings" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="IOSAppSim" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IOSAppRDC (1)" />
         <item itemvalue="JUnit.DesktopChromeWeb" />
+        <item itemvalue="JUnit.DesktopChromeWeb.performanceMetrics" />
+        <item itemvalue="JUnit.DesktopFirefoxWeb" />
         <item itemvalue="Application.DriverAcquisition" />
-        <item itemvalue="JUnit.IOSAppRDC" />
-        <item itemvalue="JUnit.DesktopEdgeWeb" />
-        <item itemvalue="JUnit.IOSAppSim" />
       </list>
     </recent_temporary>
   </component>

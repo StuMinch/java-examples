@@ -8,8 +8,19 @@ import org.openqa.selenium.*;
 import java.net.URL;
 
 import java.net.MalformedURLException;
+import java.util.Random;
 
 public class IOSAppSim {
+
+    private static String generateUuid() {
+        // Generate a random UUID
+        String uuidStr = "";
+        for (int i = 0; i < 12; i++) {
+            Random random = new Random();
+            uuidStr += String.valueOf(random.nextInt(15));
+        }
+        return uuidStr;
+    }
     private IOSDriver driver;
 
     @RegisterExtension
@@ -20,15 +31,15 @@ public class IOSAppSim {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:filename=Scrumdinger.zip");
+        caps.setCapability("appium:app", "storage:Retail_release-4.470-20231102_16_40613_automation-chase.app.zip");
         caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
-        caps.setCapability("appium:platformVersion", "16.2");
+        caps.setCapability("appium:platformVersion", "17.0");
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("appiumVersion", "2.0.0-beta44");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
         //sauceOptions.setCapability("tunnelName", "composed-docker-sc");
-        sauceOptions.setCapability("build", "Scrumdinger Appium Tests");
+        sauceOptions.setCapability("build", "Chase iOS Start Times");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
@@ -38,7 +49,7 @@ public class IOSAppSim {
         driver = new IOSDriver(url, caps);
 
     }
-    @DisplayName("Scrumdinger via Appium")
+    @DisplayName("Chase - Allow Once - Geolocation Prompt")
     @Test
     public void iOSAppTest() throws InterruptedException {
         driver.findElement(By.name("Allow Once")).click();

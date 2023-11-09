@@ -1,79 +1,67 @@
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.RegisterExtension;
-import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.junit.jupiter.api.AfterEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Demo tests with Selenium.
- */
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class DesktopFirefoxWeb {
-    Logger logger = Logger.getLogger("");
 
-    public RemoteWebDriver driver;
-
-    /**
-     * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
-     * Note that the name is never actually used
-     */
-    @RegisterExtension
-    public SauceTestWatcher watcher = new SauceTestWatcher();
-
-    public DesktopFirefoxWeb() throws IOException {
-    }
+    private RemoteWebDriver driver;
 
     @BeforeEach
-    public void setup(TestInfo testInfo) throws MalformedURLException {
+    public void setup() throws MalformedURLException {
 
-        FirefoxOptions browserOptions = new FirefoxOptions();
-        browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("latest");
+        // Setup Logger
+        // https://www.selenium.dev/documentation/webdriver/troubleshooting/logging/
+        Logger logger = Logger.getLogger("");
+        logger.setLevel(Level.FINE);
+        Arrays.stream(logger.getHandlers()).forEach(handler -> {
+            handler.setLevel(Level.FINE);
+        });
+
+        FirefoxOptions options = new FirefoxOptions();
+        options.setPlatformName("Windows 10");
+        options.setBrowserVersion("117");
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-        sauceOptions.put("name", testInfo.getDisplayName());
-        browserOptions.setCapability("sauce:options", sauceOptions);
+        sauceOptions.put("name", "Firefox Desktop Web");
+        sauceOptions.put("seleniumVersion", "latest");
+        options.setCapability("sauce:options", sauceOptions);
 
-        URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");
-        WebDriver driver = RemoteWebDriver.builder().oneOf(browserOptions).address(url).build();
-    }
-
-    @DisplayName("Desktop Firefox Latest Web Test")
-    @Test
-    public void desktopEdgeWebTest() {
-        driver.navigate().to("https://www.saucedemo.com");
-        Assertions.assertEquals("Swag Labs", driver.getTitle());
-    }
-
-    /**
-     * Custom TestWatcher for Sauce Labs projects.
-     */
-    public class SauceTestWatcher implements TestWatcher {
-        @Override
-        public void testSuccessful(ExtensionContext context) {
-            driver.executeScript("sauce:job-result=passed");
-            driver.quit();
+        try {
+            URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");
+            driver = new RemoteWebDriver(url, options);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
+    }
 
-        @Override
-        public void testFailed(ExtensionContext context, Throwable cause) {
-            driver.executeScript("sauce:job-result=failed");
+    @Test
+    public void testBrowseToMozillaOrg() {
+        driver.navigate().to("https://www.mozilla.org/");
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (driver != null) {
             driver.quit();
         }
     }
