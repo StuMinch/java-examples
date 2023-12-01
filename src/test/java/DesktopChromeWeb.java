@@ -39,6 +39,7 @@ public class DesktopChromeWeb {
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.put("name", testInfo.getDisplayName());
+        sauceOptions.put("devTools", true);
         //sauceOptions.put("tunnelName", "composed-docker-sc");
         options.setCapability("sauce:options", sauceOptions);
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");

@@ -5,11 +5,11 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.*;
 import java.net.URL;
-
 import java.net.MalformedURLException;
 
+
 public class AndroidApp {
-    private AndroidDriver driver;
+    public AndroidDriver driver;
 
     /**
      * A Test Watcher is needed to be able to get the results of a Test so that it can be sent to Sauce Labs.
@@ -24,10 +24,10 @@ public class AndroidApp {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("appium:app", "storage:filename=cart-release_v23.104.302-20001_arm64-v8a.apk");  // The filename of the mobile app
+        //caps.setCapability("appium:prerun", "storage:filename=adb-prerun.sh");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
-        caps.setCapability("appium:platformVersion", "10.0");
+        caps.setCapability("appium:platformVersion", "12.0");
         caps.setCapability("appium:automationName", "UiAutomator2");
-        //caps.setCapability("prerun", "filename=adb-prerun.sh");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
@@ -43,7 +43,7 @@ public class AndroidApp {
     }
 
     @Test
-    public void androidWebTest() throws InterruptedException {
+    public void androidEmulatorPreRunTest() throws InterruptedException {
         driver.getPageSource();
     }
 

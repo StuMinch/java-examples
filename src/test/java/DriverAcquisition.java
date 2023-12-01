@@ -37,16 +37,16 @@ public class DriverAcquisition {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
-        caps.setCapability("appium:deviceName", "iPhone 11 Simulator");
+        caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
         caps.setCapability("appium:deviceOrientation", "portrait");
-        caps.setCapability("appium:platformVersion", "15.4");
+        caps.setCapability("appium:platformVersion", "16.2");
         caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.setCapability("uuid", localSessionUuid);
-        sauceOptions.setCapability("build", "Troubleshoot Grid Driver Acquistion Error");
+        sauceOptions.setCapability("build", "Troubleshoot No New Command Issue");
         sauceOptions.setCapability("name", "Increased Java Logging");
         caps.setCapability("sauce:options", sauceOptions);
 
