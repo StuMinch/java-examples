@@ -35,6 +35,7 @@ public class DesktopChromeAcquisitionTimer {
         ChromeOptions caps = new ChromeOptions();
         caps.setCapability("platformName", "Windows 11");
         caps.setCapability("browserVersion", "latest");
+        caps.addArguments("--incognito");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
