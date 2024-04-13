@@ -31,11 +31,11 @@ public class IOSAppSim {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:Retail_release-4.470-20231102_16_40613_automation-chase.app.zip");
+        caps.setCapability("appium:app", "storage:f2401caa-60c7-49fb-ae95-e47ea6854730");
         caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
-        caps.setCapability("appium:platformVersion", "17.0");
+        caps.setCapability("appium:platformVersion", "16.2");
         caps.setCapability("appium:automationName", "XCUITest");
-        caps.setCapability("appiumVersion", "2.0.0-beta44");
+        caps.setCapability("appiumVersion", "2.1.3");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
         //sauceOptions.setCapability("tunnelName", "composed-docker-sc");

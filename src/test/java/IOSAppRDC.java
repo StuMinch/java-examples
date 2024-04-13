@@ -23,13 +23,14 @@ public class IOSAppRDC {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:filename=Scrumdinger.ipa");
+        caps.setCapability("browserName", "Safari");
         caps.setCapability("appium:deviceName", "iPhone.*");
         caps.setCapability("appium:automationName", "XCUITest");
-        caps.setCapability("appiumVersion", "2.0.0");
+        caps.setCapability("appiumVersion", "appium2-20230901");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
         sauceOptions.setCapability("build", "Scrumdinger Appium RDC");
+        sauceOptions.setCapability("tunnelName", "your-tunnel-name");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
