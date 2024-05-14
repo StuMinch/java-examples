@@ -6,7 +6,12 @@ import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.*;
 import java.net.URL;
 
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class IOSWeb {
     private IOSDriver driver;
@@ -24,15 +29,17 @@ public class IOSWeb {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("browserName", "Safari");
-        caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
+        caps.setCapability("appium:deviceName", "iPhone 15 Simulator");
         // Comment out the line above (Emulator) before using the line below (Real Device)
         //caps.setCapability("appium:deviceName", "iPhone.*");
-        caps.setCapability("appium:platformVersion", "16.2");
+        caps.setCapability("appium:platformVersion", "17.0");
         caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("name", testInfo.getDisplayName());
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+        sauceOptions.setCapability("tunnelName", "sauce-connect-v4");
+        sauceOptions.setCapability("build", "Tunnel Version Check");
         caps.setCapability("sauce:options", sauceOptions);
 
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");
@@ -41,11 +48,34 @@ public class IOSWeb {
 
     }
 
+    /*
     @DisplayName("iOS Web Test")
     @Test
     public void iOSWebTest() throws InterruptedException {
-        driver.get("https://apple.com/iphone");
-        Assertions.assertEquals("iPhone - Apple", driver.getTitle());
+        driver.get("https://chase.com");
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        //Assertions.assertEquals("iPhone - Apple", driver.getTitle());
+    }
+    */
+    @DisplayName("iOS Web Test on iOS 17")
+    @Test
+    public void iOSWebTest() throws MalformedURLException, InterruptedException {
+        driver.get("https://saucelabs.com");
+
+        int seconds = 10;
+        Duration duration = Duration.ofSeconds(seconds);
+
+        WebDriverWait wait = new WebDriverWait(driver, duration);
+        ExpectedCondition<Boolean> titleIsCorrect = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().equals("Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing");
+            }
+        };
+
+        wait.until(titleIsCorrect);
+
+        Assertions.assertEquals("Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing", driver.getTitle());
     }
 
     /**

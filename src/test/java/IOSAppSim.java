@@ -31,7 +31,7 @@ public class IOSAppSim {
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:f2401caa-60c7-49fb-ae95-e47ea6854730");
+        caps.setCapability("appium:app", "storage:9df2bf1a-119c-4ad1-84dc-e3f10e13227c");
         caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
         caps.setCapability("appium:platformVersion", "16.2");
         caps.setCapability("appium:automationName", "XCUITest");
@@ -42,6 +42,7 @@ public class IOSAppSim {
         sauceOptions.setCapability("build", "Chase iOS Start Times");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+        sauceOptions.setCapability("tunnelName", "sauce-connect-v4");
         caps.setCapability("sauce:options", sauceOptions);
 
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub");

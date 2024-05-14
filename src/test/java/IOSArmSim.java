@@ -37,7 +37,7 @@ public class IOSArmSim {
         // Create a map of capabilities
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("appium:app", "storage:d996008f-bccb-473f-a2e5-78eefd8b5636");
+        caps.setCapability("appium:app", "storage:c2b3a5d8-35b6-4f8c-9d99-789859b5a8d2");
         caps.setCapability("appium:deviceName", "iPhone 15 Simulator");
         caps.setCapability("appium:deviceOrientation", "portrait");
         caps.setCapability("appium:platformVersion", "17.0");
