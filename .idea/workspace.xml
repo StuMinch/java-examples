@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4273205b-7c19-48e4-a15b-536aad090e49" name="Changes" comment="Added Edge example">
-      <change afterPath="$PROJECT_DIR$/src/test/java/DesktopHeadlessChrome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/seleniumLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/runSauceLabs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopSafariWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DesktopSafariWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DriverAcquisition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DriverAcquisition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSArmSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSArmSim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IOSWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IOSWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom_original.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AndroidApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AndroidGuestCheckout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AndroidWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ChromeVersionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopChromeAcquisitionTimer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopEdgeWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopFirefoxWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopHeadlessChrome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DesktopSafariWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DriverAcquisition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppRDC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IOSAppSim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IOSArmSim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IOSWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LTDriverAcquisition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/seleniumLogger.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,38 +55,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DesktopChromeAcquisitionTimer.executor": "Run",
-    "Application.DesktopHeadlessChrome.executor": "Run",
-    "Application.DesktopSafariWeb.executor": "Run",
-    "Application.DriverAcquisition.executor": "Run",
-    "Application.IOSArmSim.executor": "Run",
-    "Application.LTDriverAcquisition.executor": "Run",
-    "JUnit.DesktopChromeWeb.executor": "Run",
-    "JUnit.DesktopEdgeWeb.executor": "Run",
-    "JUnit.IOSAppRDC.executor": "Run",
-    "JUnit.IOSAppSim.executor": "Run",
-    "JUnit.IOSWeb.executor": "Run",
-    "JUnit.LTDriverAcquisition.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/stuart/repos/java-examples",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DesktopChromeAcquisitionTimer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DesktopHeadlessChrome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DesktopSafariWeb.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DriverAcquisition.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IOSArmSim.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LTDriverAcquisition.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Okta.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AmexSe4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChromeVersionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DesktopChromeWeb.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DesktopEdgeWeb.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IOSAppRDC.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IOSAppSim.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IOSWeb.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LTDriverAcquisition.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stuartminchington/Developer/java/java-examples&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.runSauceLabs">
     <configuration name="DesktopChromeAcquisitionTimer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DesktopChromeAcquisitionTimer" />
       <module name="JavaExamples" />
@@ -83,39 +97,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DesktopSafariWeb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesktopSafariWeb" />
+    <configuration name="runSauceLabs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="runSauceLabs" />
       <module name="JavaExamples" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IOSArmSim" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="IOSArmSim" />
-      <module name="JavaExamples" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DesktopEdgeWeb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AmexSe4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaExamples" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DesktopEdgeWeb" />
+      <option name="MAIN_CLASS_NAME" value="AmexSe4" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LTDriverAcquisition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChromeVersionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaExamples" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lambdatest.ltOptions_w3c.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lambdatest.ltOptions_w3c" />
-      <option name="MAIN_CLASS_NAME" value="com.lambdatest.ltOptions_w3c.LTDriverAcquisition" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ChromeVersionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IOSAppSim" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaExamples" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="IOSAppSim" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.runSauceLabs" />
+        <item itemvalue="JUnit.ChromeVersionTest" />
+        <item itemvalue="JUnit.AmexSe4" />
+        <item itemvalue="JUnit.IOSAppSim" />
         <item itemvalue="Application.DesktopChromeAcquisitionTimer" />
-        <item itemvalue="Application.IOSArmSim" />
-        <item itemvalue="JUnit.DesktopEdgeWeb" />
-        <item itemvalue="JUnit.LTDriverAcquisition" />
-        <item itemvalue="Application.DesktopSafariWeb" />
       </list>
     </recent_temporary>
   </component>
