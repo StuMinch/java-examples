@@ -34,8 +34,8 @@ public class DesktopElectronApp {
         sauceOptions.put("build", "Desktop Electron");
         sauceOptions.put("name", "My Electron App");
         sauceOptions.put("app", "storage:1e6f6c3e-5113-4407-bc33-50e45d26f424");
-        sauceOptions.put("username", "sminch");
-        sauceOptions.put("accessKey", "29a183ea-4c7b-4c5d-8a62-099a764f7542");
+        sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+        sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         caps.setCapability("sauce:options", sauceOptions);
 
 
