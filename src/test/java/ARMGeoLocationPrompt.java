@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DriverAcquisition {
+public class ARMGeoLocationPrompt {
 
     private static String generateUuid() {
         // Generate a random UUID
@@ -37,24 +37,18 @@ public class DriverAcquisition {
         // Create a map of capabilities
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "iOS");
-        // ARM Build
-        //caps.setCapability("appium:app", "storage:d996008f-bccb-473f-a2e5-78eefd8b5636");
-        // Multi-arch Build
-        caps.setCapability("appium:app", "storage:4227c45a-6d74-4390-9619-c0a242f8351b");
-        //caps.setCapability("appium:deviceName", "iPhone 15 Simulator");
-        caps.setCapability("appium:deviceName", "iPhone 14 Simulator");
+        caps.setCapability("appium:app", "storage:filename=Retail_release-2025.01-Minor1_13_44420_automation-chase.app.zip");
+        caps.setCapability("appium:deviceName", "iPhone 16 Simulator");
         caps.setCapability("appium:deviceOrientation", "portrait");
-        //caps.setCapability("appium:platformVersion", "17.0");
-        caps.setCapability("appium:platformVersion", "16.2");
+        caps.setCapability("appium:platformVersion", "18.0");
         caps.setCapability("appium:automationName", "XCUITest");
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("appiumVersion", "2.11.3");
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.setCapability("uuid", localSessionUuid);
-        //sauceOptions.setCapability("name", "iOS 17 ARM Simulator");
-        sauceOptions.setCapability("name", "iOS 16.2 Simulator");
-        //sauceOptions.setCapability("armRequired", true);
+        sauceOptions.setCapability("name", "ARM GeoLocation Prompt");
+        sauceOptions.setCapability("armRequired", true);
         caps.setCapability("sauce:options", sauceOptions);
 
         // Start the timer

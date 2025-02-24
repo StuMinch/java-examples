@@ -42,6 +42,8 @@ public class MobileIOSAppArm {
     @Test
     public void testTappingAllowOncePrompt() {
 
+        driver.getPageSource();
+
         driver.findElement(By.name("Allow Once")).click();
 
         WebElement signInButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Sign in")));
