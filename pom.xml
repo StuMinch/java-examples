@@ -8,78 +8,77 @@
     <artifactId>JavaExamples</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <junit.jupiter.version>5.9.1</junit.jupiter.version>
-        <junit.platform.version>1.9.1</junit.platform.version>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0</version>
-                    <configuration>
-                        <!-- Enable parallel execution -->
-                        <parallel>all</parallel>
-                        <!-- Set the total number of threads (adjust as needed) -->
-                        <threadCount>10</threadCount>
-                        <perCoreThreadCount>true</perCoreThreadCount>
-                        <useUnlimitedThreads>true</useUnlimitedThreads>
-                        <includes>
-                            <include>**/*.java</include> <!-- Specify your test class naming convention -->
-                        </includes>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.12.1</version>
-                    <configuration>
-                        <source>11</source>
-                        <target>11</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
+        <junit.version>5.11.3</junit.version> </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.23.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+            <version>4.25.0</version>  </dependency>
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>9.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+            <version>9.3.0</version>  </dependency>
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-site-plugin</artifactId>
-            <version>3.3</version>
-            <type>maven-plugin</type>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+            <version>1.11.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.11.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-reporting</artifactId>
+            <version>1.11.0-M1</version> <scope>test</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version> <configuration>
+                <properties>
+                    <configurationParameters>
+                        junit.jupiter.extensions.autodetection.enabled = true  junit.platform.reporting.open.xml.enabled = true
+                        junit.platform.reporting.output.dir = target/surefire-reports
+                    </configurationParameters>
+                </properties>
+                <includes>
+                    <include>**/*.java</include>
+                </includes>
+            </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version> <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.target}</target>
+            </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -18,11 +18,11 @@ public class runSauceLabs {
 
         // Setup Logger
         // https://www.selenium.dev/documentation/webdriver/troubleshooting/logging/
-        Logger logger = Logger.getLogger("");
-        logger.setLevel(Level.FINE);
-        Arrays.stream(logger.getHandlers()).forEach(handler -> {
-            handler.setLevel(Level.FINE);
-        });
+        //Logger logger = Logger.getLogger("");
+        //logger.setLevel(Level.FINE);
+        //Arrays.stream(logger.getHandlers()).forEach(handler -> {
+        //    handler.setLevel(Level.FINE);
+        //});
 
         // Create a map of capabilities
         ChromeOptions caps = new ChromeOptions();
@@ -46,11 +46,8 @@ public class runSauceLabs {
         RemoteWebDriver driver = new RemoteWebDriver(url, caps);
         driver.navigate().to("https://www.google.com");
 
-        Thread.sleep(5000);
-        for (Instant now = Instant.now(); now.isBefore(start.plusSeconds(200)); now = Instant.now()) {
-            WebElement query = driver.findElement(By.cssSelector("div[class='FPdoLc lJ9FBc'] input[name='btnK']"));
-            query.click();
-        }
+        WebElement query = driver.findElement(By.cssSelector("div[class='FPdoLc lJ9FBc'] input[name='btnK']"));
+        query.click();
 
         driver.quit();
     }
